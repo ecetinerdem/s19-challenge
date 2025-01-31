@@ -26,25 +26,25 @@ public class User {
 
 
     @Column(name = "username")
-    @NotNull(message = "Username can not be null")
-    @NotEmpty(message = "Username can not be empty")
-    @NotBlank(message = "Username can not be blank")
+    @NotNull(message = "Username cannot be null")
+    @NotEmpty(message = "Username cannot be empty")
+    @NotBlank(message = "Username cannot be blank")
     @Size(max = 50, message = "Username cannot be longer than 50 characters")
     private String username;
 
 
     @Column(name = "email")
     @Email
-    @NotNull(message = "Email can not be null")
-    @NotEmpty(message = "Email can not be empty")
-    @NotBlank(message = "Email can not be blank")
-    @Size(max = 100, message = "Email can not be longer than 100 character")
+    @NotNull(message = "Email cannot be null")
+    @NotEmpty(message = "Email cannot be empty")
+    @NotBlank(message = "Email cannot be blank")
+    @Size(max = 100, message = "Email cannot be longer than 100 character")
     private String email;
 
     @Column(name = "password")
-    @NotNull(message = "Password can not be null")
-    @NotEmpty(message = "Password can not be empty")
-    @NotBlank(message = "Password can not be blank")
+    @NotNull(message = "Password cannot be null")
+    @NotEmpty(message = "Password cannot be empty")
+    @NotBlank(message = "Password cannot be blank")
     @Size(min = 8, max = 16, message = "Password must be at least 12 character long")
     private String password;
 
