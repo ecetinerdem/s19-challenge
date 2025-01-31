@@ -1,5 +1,6 @@
 package com.fsweb.s19_challenge.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import jdk.jfr.Timestamp;
@@ -52,7 +53,8 @@ public class User {
     @Timestamp
     private LocalDate createdAt;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Tweet> tweets = new ArrayList<>();
 
 
