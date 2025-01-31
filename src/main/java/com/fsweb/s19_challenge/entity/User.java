@@ -9,6 +9,8 @@ import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(schema = "fsweb", name = "user")
@@ -49,6 +51,9 @@ public class User {
     @Column(name = "created_at")
     @Timestamp
     private LocalDate createdAt;
+
+    @OneToMany
+    private List<Tweet> tweets = new ArrayList<>();
 
 
 
