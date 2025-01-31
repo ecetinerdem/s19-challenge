@@ -44,7 +44,7 @@ public class User {
     @NotBlank(message = "Password cannot be blank")
     @Size(min = 8, max = 16, message = "Password must be between 8 and 16 characters")
     private String password;
-    
+
 
     @Column(name = "created_at")
     @Temporal(TemporalType.DATE)
