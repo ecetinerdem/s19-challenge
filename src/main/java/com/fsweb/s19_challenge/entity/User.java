@@ -52,9 +52,12 @@ public class User {
     @Timestamp
     private LocalDate createdAt;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Tweet> tweets = new ArrayList<>();
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
 }
