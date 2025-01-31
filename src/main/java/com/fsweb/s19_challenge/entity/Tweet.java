@@ -1,6 +1,7 @@
 package com.fsweb.s19_challenge.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -12,6 +13,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(schema = "fsweb", name = "tweet")
@@ -41,6 +44,10 @@ public class Tweet {
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH,CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private User user;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "tweet")
+    private List<Comment> comments = new ArrayList<>();
 
 
 }
