@@ -37,6 +37,9 @@ public class Tweet {
     @Column(name = "is_liked", nullable = false, columnDefinition = "boolean default false")
     private Boolean isLiked = false;
 
+    @Column(name = "isRetweet", nullable = false, columnDefinition = "boolean default false")
+    private Boolean isRetweet = false;
+
     @Column(name = "created_at")
     @Temporal(TemporalType.DATE)
     private LocalDate createdAt;
