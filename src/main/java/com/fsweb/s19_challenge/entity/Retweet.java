@@ -27,7 +27,7 @@ public class Retweet {
 
     @JsonBackReference
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "tweet_id")
     private Tweet tweet;
 
     @Column(name = "created_at")
