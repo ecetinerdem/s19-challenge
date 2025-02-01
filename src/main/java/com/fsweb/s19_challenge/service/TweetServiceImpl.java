@@ -32,12 +32,22 @@ public class TweetServiceImpl implements TweetService{
 
     @Override
     public Tweet saveTweet(Tweet tweet) {
-        return null;
+        return tweetRepository.save(tweet);
     }
 
     @Override
     public Tweet updateTweet(Long id, Tweet tweet) {
-        return null;
+        Tweet foundTweet = findTweetById(id);
+        if (foundTweet.getUser().equals(tweet.getUser())) {
+            foundTweet.setContent(tweet.getContent());
+            foundTweet.setIsLiked(tweet.getIsLiked());
+            foundTweet.setIsRetweet(tweet.getIsRetweet());
+            foundTweet.setComments(tweet.getComments());
+            foundTweet.setLikes(tweet.getLikes());
+            foundTweet.setRetweets(tweet.getRetweets());
+            return foundTweet;
+        } else
+        return new TweetException("Tweet with given id does not exist " + id, HttpStatus.NOT_FOUND);
     }
 
     @Override
