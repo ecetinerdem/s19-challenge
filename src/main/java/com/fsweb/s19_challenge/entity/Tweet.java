@@ -54,4 +54,8 @@ public class Tweet {
     @JsonManagedReference
     @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
     private List<Like> likes = new ArrayList<>();
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
+    private List<Retweet> retweets = new ArrayList<>();
 }
