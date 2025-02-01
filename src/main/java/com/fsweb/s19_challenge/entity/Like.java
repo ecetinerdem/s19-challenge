@@ -19,10 +19,6 @@ public class Like {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "created_at")
-    @Temporal(TemporalType.DATE)
-    private LocalDate createdAt;
-
     @JsonBackReference
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
@@ -32,4 +28,8 @@ public class Like {
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
     private Tweet tweet;
+
+    @Column(name = "created_at")
+    @Temporal(TemporalType.DATE)
+    private LocalDate createdAt;
 }
