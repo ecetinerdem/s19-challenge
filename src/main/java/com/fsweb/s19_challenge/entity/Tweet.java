@@ -41,6 +41,7 @@ public class Tweet {
     @Temporal(TemporalType.DATE)
     private LocalDate createdAt;
 
+
     @JsonBackReference
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "user_id")
