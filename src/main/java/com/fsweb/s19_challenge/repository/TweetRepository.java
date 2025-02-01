@@ -14,5 +14,5 @@ public interface TweetRepository extends JpaRepository<Tweet, Long> {
     @Query("SELECT t FROM Tweet t WHERE t.user.id = :userId")
     List<Tweet> findAllTweetsByUserId(@Param("userId") Long userId);
 
-    
+
 }
