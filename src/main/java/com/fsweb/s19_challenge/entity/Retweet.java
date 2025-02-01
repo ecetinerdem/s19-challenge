@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(schema = "fsweb", name = "retweet")
 @NoArgsConstructor
@@ -28,4 +30,7 @@ public class Retweet {
     @JoinColumn(name = "user_id")
     private Tweet tweet;
 
+    @Column(name = "created_at")
+    @Temporal(TemporalType.DATE)
+    private LocalDate createdAt;
 }
