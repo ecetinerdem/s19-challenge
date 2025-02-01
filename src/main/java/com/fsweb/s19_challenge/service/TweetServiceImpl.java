@@ -37,7 +37,7 @@ public class TweetServiceImpl implements TweetService{
     }
 
     @Override
-    public Tweet updateTweet(Long id, Tweet tweet) {
+    public Tweet updateTweet  (Long id, Tweet tweet) {
         Tweet foundTweet = findTweetById(id);
         if (foundTweet.getUser().equals(tweet.getUser())) {
             foundTweet.setContent(tweet.getContent());
@@ -46,13 +46,13 @@ public class TweetServiceImpl implements TweetService{
             foundTweet.setComments(tweet.getComments());
             foundTweet.setLikes(tweet.getLikes());
             foundTweet.setRetweets(tweet.getRetweets());
-            return foundTweet;
-        } else
-        return new TweetException("Tweet with given id does not exist " + id, HttpStatus.NOT_FOUND);
+        }
+        return foundTweet;
     }
 
     @Override
-    public Void deleteTweet(Long id) {
-        return null;
+    public void deleteTweet(Long id) {
+        Tweet tweet = findTweetById(id);
+        tweetRepository.delete(tweet);
     }
 }
