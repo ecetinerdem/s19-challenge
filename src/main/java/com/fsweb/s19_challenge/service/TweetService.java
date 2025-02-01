@@ -10,6 +10,6 @@ public interface TweetService {
     Tweet findTweetById(Long id);
     Tweet saveTweet(Tweet tweet);
     Tweet updateTweet(Long id, Tweet tweet);
-    Void deleteTweet(Long id);
+    void deleteTweet(Long id);
 
 }
