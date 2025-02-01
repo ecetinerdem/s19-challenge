@@ -1,6 +1,7 @@
 package com.fsweb.s19_challenge.service;
 
 import com.fsweb.s19_challenge.entity.Tweet;
+import com.fsweb.s19_challenge.exceptions.TweetException;
 import com.fsweb.s19_challenge.repository.TweetRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
