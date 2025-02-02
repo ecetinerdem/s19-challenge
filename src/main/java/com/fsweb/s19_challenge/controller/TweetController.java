@@ -29,6 +29,11 @@ public class TweetController {
         return tweetService.findTweetById(id);
     }
 
+    @PostMapping
+    public Tweet saveTweet(@RequestBody Tweet tweet) {
+        return  tweetService.saveTweet(tweet);
+    }
+
     @PutMapping("/{tweetId}")
     public Tweet updateTweet(@PathVariable("tweetId") Long id, @RequestBody Tweet tweet) {
         return tweetService.updateTweet(id, tweet);
