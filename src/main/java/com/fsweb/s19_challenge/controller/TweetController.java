@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @AllArgsConstructor
-@RequestMapping
-@RestController("/tweet")
+@RequestMapping("/tweet")
+@RestController
 public class TweetController {
 
     private final TweetService tweetService;
