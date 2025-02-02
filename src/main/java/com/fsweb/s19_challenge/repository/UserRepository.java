@@ -11,11 +11,7 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    // Query to find all tweets by a specific user
-    @Query("SELECT t FROM Tweet t WHERE t.user.id = :userId")
-    List<Tweet> findAllTweetsByUserId(@Param("userId") Long userId);
-
-    // Query to find a single tweet by its ID and ensure it belongs to a specific user
-    @Query("SELECT t FROM Tweet t WHERE t.id = :tweetId AND t.user.id = :userId")
-    Optional<Tweet> findTweetByIdAndUserId(@Param("tweetId") Long tweetId, @Param("userId") Long userId);
+    @Query("SELECT u FROM User u WHERE u.id = :id")
+    Optional<User> findUserById(Long id);
 }
+
