@@ -24,5 +24,17 @@ public class CommentController {
     }
 
     @PostMapping
+    public Comment saveComment(@RequestBody Comment comment) {
+        return  commentService.saveComment(comment);
+    }
 
+    @PutMapping("/{id}")
+    public Comment updateComment(@PathVariable("id") Long id, @RequestBody Comment comment) {
+        return commentService.updateComment(id, comment);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteComment (@PathVariable("id") Long id) {
+        commentService.deleteComment(id);
+    }
 }
