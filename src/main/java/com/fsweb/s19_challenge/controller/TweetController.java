@@ -3,10 +3,7 @@ package com.fsweb.s19_challenge.controller;
 import com.fsweb.s19_challenge.entity.Tweet;
 import com.fsweb.s19_challenge.service.TweetService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +25,18 @@ public class TweetController {
     }
 
     @GetMapping("/{tweetId}")
-    public Tweet findTweetById
+    public Tweet findTweetById(@PathVariable("tweetId") Long id) {
+        return tweetService.findTweetById(id);
+    }
+
+    @PutMapping("/{tweetId}")
+    public Tweet updateTweet(@PathVariable("tweetId") Long id, @RequestBody Tweet tweet) {
+        return tweetService.updateTweet(id, tweet);
+    }
+
+    @DeleteMapping("/{tweetId}")
+    public void deleteTweet(@PathVariable("tweetId") Long id) {
+        tweetService.deleteTweet(id);
+    }
 
 }
